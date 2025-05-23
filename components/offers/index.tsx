@@ -5,19 +5,19 @@ import Offer from "./Offer";
 
 const OFFERS = [
   {
-    image: require("@/assets/images/madrid.jpg"),
+    image: require("@/assets/images/madrid.png"),
     destination: "Caracas / Madrid",
     price: 906,
     city: "Madrid",
   },
   {
-    image: require("@/assets/images/malaga.jpg"),
+    image: require("@/assets/images/malaga.png"),
     destination: "Caracas / Málaga",
     price: 890,
     city: "Málaga",
   },
   {
-    image: require("@/assets/images/oporto.jpg"),
+    image: require("@/assets/images/oporto.png"),
     destination: "Caracas / Oporto",
     price: 970,
     city: "Oporto",
@@ -29,7 +29,7 @@ const OFFERS = [
     city: "Tenerife",
   },
   {
-    image: require("@/assets/images/valencia.jpg"),
+    image: require("@/assets/images/valencia.png"),
     destination: "Caracas / Valencia",
     price: 232,
     city: "Valencia",
@@ -41,7 +41,7 @@ const OFFERS = [
     city: "Lisboa",
   },
   {
-    image: require("@/assets/images/madrid.jpg"),
+    image: require("@/assets/images/madrid.png"),
     destination: "Caracas / Madrid",
     price: 234,
     city: "Madrid",
@@ -53,7 +53,7 @@ const OFFERS = [
     city: "Munich",
   },
   {
-    image: require("@/assets/images/berlin.jpg"),
+    image: require("@/assets/images/berlin.png"),
     destination: "Caracas / Berlín",
     price: 786,
     city: "Berlín",
