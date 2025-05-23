@@ -1,7 +1,7 @@
-import Steps from "@/components/steps";
+import Offers from "@/components/offers";
 
 export default function StepsScreen() {
   return (
-    <Steps />
+    <Offers />
   );
 }
