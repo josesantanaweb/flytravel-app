@@ -76,7 +76,12 @@ const Offers = () => {
           className="w-full h-[340px]"
         />
       </View>
-      <View className="h-full p-5 bg-white -mt-14 rounded-t-3xl">
+      <View className="relative p-5 overflow-hidden bg-white -mt-14 rounded-t-3xl">
+        <Image
+          source={require("@/assets/images/bg-figure.png")}
+          contentFit="cover"
+          className="absolute top-[-540px] w-[210px] h-[1500px] left-[280px]"
+        />
         <Text className="mb-3 text-xl font-semibold text-blue-950">
           Destinos
         </Text>
