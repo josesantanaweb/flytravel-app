@@ -1,12 +1,9 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Tabs } from "expo-router";
+import React from "react";
+import { Image, Platform } from "react-native";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Colors } from "@/constants/Colors";
+import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -14,30 +11,87 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
+            position: "absolute",
+            backgroundColor: "#e9e9e9",
+            borderTopWidth: 0,
           },
-          default: {},
+          default: {
+            borderTopWidth: 0,
+            backgroundColor: "#e9e9e9",
+          },
         }),
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Buscar",
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("@/assets/images/search-icon-active.png")
+                  : require("@/assets/images/search-icon.png")
+              }
+              style={{ width: 20, height: 20, tintColor: color }}
+              resizeMode="contain"
+            />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="getaways"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Escapadas",
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("@/assets/images/geteways-icon-active.png")
+                  : require("@/assets/images/geteways-icon.png")
+              }
+              style={{ width: 20, height: 20, tintColor: color }}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="offers"
+        options={{
+          title: "Ofertas",
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("@/assets/images/offers-icon-active.png")
+                  : require("@/assets/images/offers-icon.png")
+              }
+              style={{ width: 20, height: 20, tintColor: color }}
+              resizeMode="contain"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="my-account"
+        options={{
+          title: "Mi cuenta",
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("@/assets/images/account-icon-active.png")
+                  : require("@/assets/images/account-icon.png")
+              }
+              style={{ width: 20, height: 20 }}
+              resizeMode="contain"
+            />
+          ),
         }}
       />
     </Tabs>

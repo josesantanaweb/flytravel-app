@@ -1,6 +1,6 @@
 import Getaways from "@/components/getaways";
 
-export default function StepsScreen() {
+export default function MyAccountScreen() {
   return (
     <Getaways />
   );
