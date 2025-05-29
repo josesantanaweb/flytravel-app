@@ -16,12 +16,12 @@ export default function TabLayout() {
         tabBarStyle: Platform.select({
           ios: {
             position: "absolute",
-            backgroundColor: "#e9e9e9",
+            backgroundColor: "#f3f4f6",
             borderTopWidth: 0,
           },
           default: {
             borderTopWidth: 0,
-            backgroundColor: "#e9e9e9",
+            backgroundColor: "#f3f4f6",
           },
         }),
       }}
