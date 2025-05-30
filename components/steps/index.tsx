@@ -1,6 +1,6 @@
-import { Image } from "expo-image";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import React, { useState } from "react";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import Dots from "./Dots";
 
 const STEPS = [
@@ -44,7 +44,6 @@ const Steps = () => {
     <View className="relative flex-1">
       <Image
         source={require("@/assets/images/bg.png")}
-        contentFit="cover"
         className="absolute z-0 w-full h-full"
       />
       <View className="z-10 h-screen px-10">
@@ -69,21 +68,25 @@ const Steps = () => {
           </Text>
           <Dots step={step} setStep={setStep} />
           {step < 3 && (
-          <Pressable
-            onPress={() =>
-              setStep((prev) => (prev < STEPS.length - 1 ? prev + 1 : prev))
-            }
-            className="flex flex-row items-center gap-3"
-          >
-            <Text className="text-base text-center text-orange-400">
-              Seguir viendo
-            </Text>
-            <View className="w-6 h-6 bg-orange-500 rounded-full"></View>
-          </Pressable>
-           )}
+            <Pressable
+              onPress={() =>
+                setStep((prev) => (prev < STEPS.length - 1 ? prev + 1 : prev))
+              }
+              className="flex flex-row items-center gap-3"
+            >
+              <Text className="text-base text-center text-orange-400">
+                Seguir viendo
+              </Text>
+              <View className="flex items-center justify-center w-6 h-6 bg-orange-500 rounded-full">
+                 <FontAwesome name="chevron-right" size={9} color="white" />
+              </View>
+            </Pressable>
+          )}
           {step === 3 && (
-            <TouchableOpacity className="flex items-center justify-center w-full text-base text-white bg-orange-500 rounded-full h-14">
-              Activar las notificaciones
+            <TouchableOpacity className="flex items-center justify-center w-full bg-orange-500 rounded-full h-14">
+              <Text className="text-base text-white">
+                Activar las notificaciones
+              </Text>
             </TouchableOpacity>
           )}
         </View>

@@ -1,6 +1,5 @@
-import { Image } from "expo-image";
 import React, { useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { Image, Pressable, Text, TextInput, View } from "react-native";
 
 const Login = () => {
   const [layout, setLayout] = useState("LOGIN");
@@ -13,7 +12,6 @@ const Login = () => {
     <View className="relative flex-1">
       <Image
         source={require("@/assets/images/bg.png")}
-        contentFit="cover"
         className="absolute z-0 w-full h-full"
       />
       <View className="z-10 h-screen px-10">

@@ -1,7 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Image } from "expo-image";
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 interface IGetaway {
   image: string;
@@ -20,8 +19,7 @@ const Getaway = ({ getaway }: GetawayProps) => {
       style={{ shadowColor: "#000", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 6, elevation: 5 }}>
       <View className="w-[200px] p-3 relative">
         <Image
-          source={getaway.image}
-          contentFit="cover"
+          source={{ uri: getaway.image }}
           className="w-full h-[160px] rounded-xl"
         />
         <View className="absolute flex fle left-[50%] translate-x-[-50%] w-[105px] flex-row items-center gap-2 px-2 py-1 bg-orange-500 bottom-3">

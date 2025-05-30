@@ -1,8 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import { Image } from "expo-image";
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 
 interface IOffer {
   image: string;
@@ -17,16 +15,15 @@ interface OfferProps {
 
 const Offer = ({ offer }: OfferProps) => {
   return (
-    <View className="flex w-full overflow-hidden bg-white rounded-2xl"
+    <View className="flex w-[190px] h-[360px] bg-white rounded-2xl"
       style={{ shadowColor: "#000", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 6, elevation: 5 }}>
       <View className="w-full">
         <Image
-          source={offer.image}
-          contentFit="cover"
-          className="w-full h-[180px]"
+          source={{ uri: offer.image }}
+          className="w-full h-[180px] rounded-t-lg"
         />
         <View className="absolute left-0 flex flex-row items-center gap-2 px-2 py-1 bg-orange-500 top-5">
-          <FontAwesome5 name="map-marker-alt" size={8} color="#FFFFFF" />
+          {/* <FontAwesome5 name="map-marker-alt" size={8} color="#FFFFFF" /> */}
           <Text className="text-[10px] text-white">{offer.destination}</Text>
         </View>
       </View>

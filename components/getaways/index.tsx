@@ -1,43 +1,43 @@
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { Image } from "expo-image";
 import React, { useState } from "react";
 import {
+  Image,
   Platform,
   Pressable,
   ScrollView,
   Text,
   TextInput,
-  View,
+  View
 } from "react-native";
 import Getaway from "./Getaway";
 
 const GETAWAYS = [
   {
-    image: require("@/assets/images/los-roques.jpg"),
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/los-roques.jpg",
     destination: "Caracas / Los Roques",
     price: 906,
     city: "Los Roques",
   },
   {
-    image: require("@/assets/images/margarita.jpg"),
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/margarita.jpg",
     destination: "Caracas / Margarita",
     price: 890,
     city: "Margarita",
   },
   {
-    image: require("@/assets/images/canaima.jpg"),
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/canaima.jpg",
     destination: "Caracas / Canaima",
     price: 970,
     city: "Canaima",
   },
   {
-    image: require("@/assets/images/mochima.jpg"),
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/mochima.jpg",
     destination: "Caracas / Mochima",
     price: 890,
     city: "Mochima",
   },
   {
-    image: require("@/assets/images/cartagena.jpg"),
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/cartagena.jpg",
     destination: "Caracas / Cartagena",
     price: 232,
     city: "Cartagena",
@@ -54,7 +54,6 @@ const Getaways = () => {
     departureDate: new Date(),
     returnDate: new Date(),
   });
-  const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
   const [dateType, setDateType] = useState<"departure" | "return">("departure");
   const formattedDate = (date: Date) =>
@@ -89,8 +88,7 @@ const Getaways = () => {
     <ScrollView>
       <View className="relative">
         <Image
-          source={require("@/assets/images/getaways.png")}
-          contentFit="cover"
+          source={require("../../assets/images/getaways.png")}
           className="w-full h-[340px]"
         />
       </View>
@@ -152,7 +150,7 @@ const Getaways = () => {
             <View className="relative w-full">
               <Image
                 source={require("@/assets/images/user.png")}
-                className="w-[18px] h-[16px] absolute left-4 top-5"
+                className="w-[18px] h-[16px] absolute left-4 top-5 z-10"
               />
               <TextInput
                 value={formData.name}
@@ -160,14 +158,13 @@ const Getaways = () => {
                   setFormData({ ...formData, name: text })
                 }
                 placeholder="Nombre y apellido"
-                secureTextEntry
                 autoCapitalize="none"
                 className="w-full py-4 pl-12 pr-4 text-black bg-gray-100 rounded-full outline-none h-14"
                 placeholderTextColor="#888"
               />
             </View>
-            <View className="grid flex-row items-center grid-cols-2 gap-3">
-              <View className="relative flex-row items-center gap-4 px-5 bg-gray-100 rounded-tl-full rounded-bl-full h-14">
+            <Pressable className="flex flex-row items-center gap-3" onPress={() => showDatepicker("departure")}>
+              <View className="relative flex-row items-center w-1/2 gap-4 px-5 bg-gray-100 rounded-tl-full rounded-bl-full h-14">
                 <Image
                   source={require("@/assets/images/calendar.png")}
                   className="w-[18px] h-[21px]"
@@ -179,7 +176,7 @@ const Getaways = () => {
                   </Text>
                 </View>
               </View>
-              <View className="relative flex-row items-center gap-4 px-5 bg-gray-100 rounded-tr-full rounded-br-full h-14">
+              <View className="relative flex-row items-center flex-1 gap-4 px-5 bg-gray-100 rounded-tr-full rounded-br-full h-14">
                 <Image
                   source={require("@/assets/images/calendar.png")}
                   className="w-[18px] h-[21px]"
@@ -194,17 +191,23 @@ const Getaways = () => {
 
               {showPicker && (
                 <DateTimePicker
-                  value={date}
+                  value={
+                    dateType === "departure"
+                      ? formData.departureDate
+                      : formData.returnDate
+                  }
                   mode="date"
                   display={Platform.OS === "ios" ? "spinner" : "default"}
                   onChange={onChange}
+                  className="absolute top-0 left-0 w-full h-full"
                 />
               )}
-            </View>
+              
+            </Pressable>
             <View className="relative w-full">
               <Image
                 source={require("@/assets/images/passenger.png")}
-                className="w-[6px] h-[22px] absolute left-6 top-[18px]"
+                className="w-[6px] h-[22px] absolute left-6 top-[13px] z-10"
               />
               <TextInput
                 value={formData.passengers}
@@ -221,7 +224,7 @@ const Getaways = () => {
             <View className="relative w-full">
               <Image
                 source={require("@/assets/images/phone.png")}
-                className="w-[12px] h-[20px] absolute left-5 top-5"
+                className="w-[12px] h-[20px] absolute left-5 top-5 z-10"
               />
               <TextInput
                 value={formData.phone}
@@ -229,7 +232,6 @@ const Getaways = () => {
                   setFormData({ ...formData, phone: text })
                 }
                 placeholder="Teléfono"
-                secureTextEntry
                 autoCapitalize="none"
                 className="w-full py-4 pl-12 pr-4 text-black bg-gray-100 rounded-full outline-none h-14"
                 placeholderTextColor="#888"
@@ -238,7 +240,7 @@ const Getaways = () => {
             <View className="relative w-full">
               <Image
                 source={require("@/assets/images/email.png")}
-                className="w-[18px] h-[12px] absolute left-4 top-[23px]"
+                className="w-[18px] h-[12px] absolute left-4 top-[20px] z-10"
               />
               <TextInput
                 value={formData.email}
@@ -246,7 +248,6 @@ const Getaways = () => {
                   setFormData({ ...formData, email: text })
                 }
                 placeholder="Correo electrónico"
-                secureTextEntry
                 autoCapitalize="none"
                 className="w-full py-4 pl-12 pr-4 text-black bg-gray-100 rounded-full outline-none h-14"
                 placeholderTextColor="#888"
@@ -265,7 +266,7 @@ const Getaways = () => {
         <Text className="mb-3 text-xl font-semibold text-blue-950">
           Destinos
         </Text>
-        <View className="relative items-center flex-1 gap-4 ">
+        <View className="relative items-center flex-1 gap-4">
           {GETAWAYS.map((offer, index) => (
             <Getaway getaway={offer} key={index} />
           ))}
