@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, Pressable, Text, TextInput, View } from "react-native";
+import { Image, Pressable, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const Login = () => {
   const [layout, setLayout] = useState("LOGIN");
@@ -24,7 +24,7 @@ const Login = () => {
             source={require("@/assets/images/login-user.png")}
             className="w-[150px] h-[150px] mb-10"
           />
-          <Text className="mb-6 text-xl text-center text-white max-w-80">
+          <Text className="mb-6 text-xl font-semibold text-center text-white max-w-80">
             Inicia sesión o regístrate con tu correo electrónico
           </Text>
           {layout === "REGISTER" && (
@@ -64,12 +64,12 @@ const Login = () => {
               placeholderTextColor="#888"
             />
           </View>
-          <Pressable
+          <TouchableOpacity
             onPress={handleSubmit}
             className="flex items-center justify-center w-full bg-orange-500 rounded-full h-14"
           >
             <Text className="text-base text-center text-white">Continuar</Text>
-          </Pressable>
+          </TouchableOpacity>
           {layout === "LOGIN" && (
             <View className="flex-row items-center justify-center gap-3 my-3">
               <Text className="text-sm text-white">No tienes una cuenta?</Text>

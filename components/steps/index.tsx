@@ -9,31 +9,31 @@ const STEPS = [
     description:
       "Verás las mejores sugerencias y las mejores ofertas a tus destinos",
     image: require("@/assets/images/ticket.png"),
-    width: 251,
-    height: 202,
+    width: 195,
+    height: 157,
   },
   {
     title: "Entérate de nuestras escapadas de fin de semana",
     description: "Disfruta de nuestras ofertas a los destinos que más deseas",
     image: require("@/assets/images/beach.png"),
-    width: 322,
-    height: 282,
+    width: 173,
+    height: 152,
   },
   {
     title: "Tenemos un chat donde puedes dejar tus dudas y solicitudes",
     description:
       "Contácta de manera rápida y directa a uno de nuestras agentes para procesar tu solicitud",
     image: require("@/assets/images/touch.png"),
-    width: 241,
-    height: 294,
+    width: 129,
+    height: 157,
   },
   {
     title: "¿Quieres estar enterado de todo?",
     description:
       "Activa las notificaciones para recibir avisos instantaneos sobre ofertas o cambios en tus viajes",
     image: require("@/assets/images/hand.png"),
-    width: 213,
-    height: 278,
+    width: 127,
+    height: 166,
   },
 ];
 
@@ -60,7 +60,7 @@ const Steps = () => {
               marginBottom: 40,
             }}
           />
-          <Text className="mb-6 text-xl text-center text-white max-w-80">
+          <Text className="mb-6 text-xl font-semibold text-center text-white max-w-80">
             {STEPS[step].title}
           </Text>
           <Text className="text-sm text-center text-white mb-14 max-w-[300px]">
@@ -78,7 +78,7 @@ const Steps = () => {
                 Seguir viendo
               </Text>
               <View className="flex items-center justify-center w-6 h-6 bg-orange-500 rounded-full">
-                 <FontAwesome name="chevron-right" size={9} color="white" />
+                 <FontAwesome name="chevron-right" size={9} color="white" className="ml-[2px]" />
               </View>
             </Pressable>
           )}

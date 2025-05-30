@@ -15,7 +15,7 @@ interface OfferProps {
 
 const Offer = ({ offer }: OfferProps) => {
   return (
-    <View className="flex w-[190px] h-[360px] bg-white rounded-2xl"
+    <View className="flex h-[370px] bg-white rounded-2xl"
       style={{ shadowColor: "#000", shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.2, shadowRadius: 6, elevation: 5 }}>
       <View className="w-full">
         <Image

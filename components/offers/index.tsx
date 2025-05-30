@@ -1,60 +1,53 @@
 import React from "react";
 import { Image, ScrollView, Text, View } from "react-native";
+import FormOffer from "./FormOffer";
 import Offer from "./Offer";
 
 const OFFERS = [
   {
-   image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/madrid.png",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/madrid.png",
     destination: "Caracas / Madrid",
     price: 906,
     city: "Madrid",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/malaga.png",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/malaga.png",
     destination: "Caracas / Málaga",
     price: 890,
     city: "Málaga",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/oporto.png",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/oporto.png",
     destination: "Caracas / Oporto",
     price: 970,
     city: "Oporto",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/tenerife.jpg",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/tenerife.jpg",
     destination: "Caracas / Tenerife",
     price: 890,
     city: "Tenerife",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/valencia.png",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/valencia.png",
     destination: "Caracas / Valencia",
     price: 232,
     city: "Valencia",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/lisboa.jpg",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/lisboa.jpg",
     destination: "Caracas / Lisboa",
     price: 450,
     city: "Lisboa",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/madrid.png",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/madrid.png",
     destination: "Caracas / Madrid",
     price: 234,
     city: "Madrid",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/munich.jpg",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/munich.jpg",
     destination: "Caracas / Munich",
     price: 678,
     city: "Munich",
@@ -66,8 +59,7 @@ const OFFERS = [
     city: "Berlín",
   },
   {
-    image:
-      "https://my-person-bucket.s3.us-east-2.amazonaws.com/roma.jpg",
+    image: "https://my-person-bucket.s3.us-east-2.amazonaws.com/roma.jpg",
     destination: "Caracas / Roma",
     price: 123,
     city: "Roma",
@@ -83,13 +75,27 @@ const Offers = () => {
           className="w-full h-[340px]"
         />
       </View>
-      <View className="relative p-5 bg-white -mt-14 rounded-t-3xl">
+      <View className="relative px-5 py-8 bg-white -mt-14 rounded-t-3xl">
+        <Image
+          source={require("@/assets/images/summer-2.png")}
+          className="w-[77px] h-[164px] absolute -top-[120px] right-10"
+        />
+        <Text className="mb-3 text-xl font-semibold text-blue-950">
+          Formulario de viaje
+        </Text>
+        <Text className="mb-3 text-sm text-gray-400">
+          Para organizar las mejores vacaciones necesitamos que nos suministres
+          los siguientes datos:
+        </Text>
+        <FormOffer />
         <Text className="mb-3 text-xl font-semibold text-blue-950">
           Destinos
         </Text>
-        <View className="relative flex flex-row flex-wrap items-center gap-4">
+        <View className="flex flex-row flex-wrap justify-between">
           {OFFERS.map((offer, index) => (
-            <Offer offer={offer} key={index} />
+            <View key={index} style={{ width: "48%", marginBottom: 16 }}>
+              <Offer offer={offer} />
+            </View>
           ))}
         </View>
       </View>
