@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Image,
-  ScrollView,
-  Text,
-  View
-} from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import FormGetaway from "./FormGateway";
 import Getaway from "./Getaway";
 
@@ -44,13 +39,14 @@ const GETAWAYS = [
 const Getaways = () => {
   return (
     <ScrollView>
-      <View className="relative">
+      <View className="w-full h-[400px] justify-center items-center overflow-hidden">
         <Image
-          source={require("../../assets/images/getaways.png")}
-          className="w-full h-[340px]"
+          source={require("@/assets/images/getaways.png")}
+          className="object-cover w-full h-[70%]"
+          resizeMode="cover"
         />
       </View>
-      <View className="relative px-5 py-8 bg-white -mt-14 rounded-t-3xl">
+      <View className="relative px-5 py-8 -mt-24 bg-white rounded-t-3xl">
         <Image
           source={require("@/assets/images/summer.png")}
           className="w-[77px] h-[164px] absolute -top-[120px] right-10"
@@ -77,3 +73,5 @@ const Getaways = () => {
 };
 
 export default Getaways;
+
+// agregar un boton de destinos para ofertas y escapadas
