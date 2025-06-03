@@ -18,8 +18,8 @@ const FormOffer = () => {
     phone: "",
     email: "",
     name: "",
+    destination: "",
     reasonType: "Fines migratorios",
-    departureDate: new Date(),
     returnDate: new Date(),
   });
   const [showPicker, setShowPicker] = useState(false);
@@ -37,11 +37,11 @@ const FormOffer = () => {
     const message = `
       *Solicitud de Cotización de Oferta*
       Nombre: ${formData.name}
+      Destino: ${formData.destination}
       Correo: ${formData.email}
       Teléfono: ${formData.phone}
       Pasajeros: ${formData.passengers}
       Motivo de viaje: ${formData.reasonType}
-      Fecha de ida: ${formattedDate(formData.departureDate)}
       Fecha de vuelta: ${formattedDate(formData.returnDate)}
     `;
 
@@ -81,7 +81,7 @@ const FormOffer = () => {
             }
           >
             <Text
-              className={`text-sm font-semibold ${
+              className={`text-base font-semibold ${
                 formData.reasonType === "Fines migratorios"
                   ? "text-orange-500"
                   : "text-blue-950"
@@ -100,7 +100,7 @@ const FormOffer = () => {
           }
         >
           <Text
-            className={`text-sm font-semibold ${
+            className={`text-base font-semibold ${
               formData.reasonType === "Vacaciones"
                 ? "text-orange-500"
                 : "text-blue-950"
@@ -120,6 +120,22 @@ const FormOffer = () => {
             value={formData.name}
             onChangeText={(text) => setFormData({ ...formData, name: text })}
             placeholder="Nombre y apellido"
+            autoCapitalize="none"
+            className="w-full py-4 pl-12 pr-4 text-black bg-gray-100 rounded-full outline-none h-14"
+            placeholderTextColor="#888"
+          />
+        </View>
+        <View className="relative w-full">
+          <Image
+            source={require("@/assets/images/destination.png")}
+            className="w-[12px] h-[17px] absolute left-4 top-[16px] z-10"
+          />
+          <TextInput
+            value={formData.destination}
+            onChangeText={(text) =>
+              setFormData({ ...formData, destination: text })
+            }
+            placeholder="Destino"
             autoCapitalize="none"
             className="w-full py-4 pl-12 pr-4 text-black bg-gray-100 rounded-full outline-none h-14"
             placeholderTextColor="#888"
@@ -216,11 +232,7 @@ const FormOffer = () => {
           >
             <View className="w-[90%] max-w-md bg-gray-200 rounded-lg shadow-lg text-black p-4">
               <DateTimePicker
-                value={
-                  dateType === "departure"
-                    ? formData.departureDate
-                    : formData.returnDate
-                }
+                value={formData.returnDate}
                 mode="date"
                 textColor="#1c0062"
                 display={Platform.OS === "ios" ? "spinner" : "default"}

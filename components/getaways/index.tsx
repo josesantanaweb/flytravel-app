@@ -46,7 +46,7 @@ const Getaways = () => {
           resizeMode="cover"
         />
       </View>
-      <View className="relative px-5 py-8 -mt-24 bg-white rounded-t-3xl">
+      <View className="relative px-5 py-8 -mt-24 bg-white rounded-t-[30px]">
         <Image
           source={require("@/assets/images/summer.png")}
           className="w-[77px] h-[164px] absolute -top-[120px] right-10"

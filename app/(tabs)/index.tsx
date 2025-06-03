@@ -1,5 +1,5 @@
-import Steps from "@/components/steps";
+import Home from "@/components/home";
 
 export default function HomeScreen() {
-  return <Steps />;
+  return <Home />;
 }
