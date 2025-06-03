@@ -85,7 +85,7 @@ const Home = () => {
         <View className="flex flex-row items-center justify-between">
           <Pressable
             className="flex items-center gap-2"
-            onPress={() => handleRedirect("/(tabs)/offers")}
+           onPress={() => handleRedirect("/(tabs)/offers")}
           >
             <View
               style={{
@@ -146,7 +146,10 @@ const Home = () => {
             </View>
             <Text className="mb-3 text-xs text-white">Ofertas</Text>
           </Pressable>
-          <Pressable className="flex items-center gap-2"  onPress={() => handleRedirect("/(tabs)/my-account")}>
+          <Pressable
+            className="flex items-center gap-2"
+            onPress={() => handleRedirect("/(tabs)/my-account")}
+          >
             <View
               style={{
                 shadowColor: "#fff",

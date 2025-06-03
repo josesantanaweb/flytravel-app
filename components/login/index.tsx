@@ -1,12 +1,21 @@
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Image, Pressable, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const Login = () => {
+  const router = useRouter();
   const [layout, setLayout] = useState("LOGIN");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    try {
+      // await AsyncStorage.setItem("stepsSeen", "true");
+      router.push("/(tabs)");
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
+  };
 
   return (
     <View className="relative flex-1">

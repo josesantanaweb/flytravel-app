@@ -1,8 +1,5 @@
-// import Login from "@/components/login";
-import Steps from "@/components/steps";
+import Login from "@/components/login";
 
 export default function LoginScreen() {
-  return (
-    <Steps />
-  );
+  return <Login />;
 }

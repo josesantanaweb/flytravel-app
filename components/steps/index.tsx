@@ -1,4 +1,3 @@
-import { useRouter } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
   Dimensions,
@@ -47,14 +46,13 @@ const STEPS = [
 
 const { width } = Dimensions.get("window");
 
-const Steps = () => {
-  const router = useRouter();
+interface StepsProps {
+  handleFinish?: () => void;
+}
+
+const Steps = ({ handleFinish }: StepsProps) => {
   const [step, setStep] = useState(0);
   const flatListRef = useRef<FlatList>(null);
-
-  const handleRedirect = () => {
-    router.push("/(tabs)/offers");
-  };
 
   const handleScroll = (event: any) => {
     const index = Math.round(event.nativeEvent.contentOffset.x / width);
@@ -109,7 +107,7 @@ const Steps = () => {
               />
               {step === STEPS.length - 1 ? (
                 <TouchableOpacity
-                  onPress={handleRedirect}
+                  onPress={handleFinish}
                   className="flex items-center justify-center w-full mt-6 bg-orange-500 rounded-full h-14"
                 >
                   <Text className="text-base text-white">Empezar</Text>
