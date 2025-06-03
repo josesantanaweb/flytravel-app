@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import React from "react";
-import { Image, Pressable, ScrollView, Text, View } from "react-native";
+import { Image, Platform, Pressable, ScrollView, Text, View } from "react-native";
 import Offer from "../offers/Offer";
 import FormHome from "./FormHome";
 
@@ -73,7 +73,7 @@ const Home = () => {
   const handleRedirect = (option: any) => router.push(option);
 
   return (
-    <ScrollView>
+    <ScrollView style={{ marginTop: Platform.OS === "android" ? 60 : 0 }}>
       <View className="w-full h-[400px] justify-center items-center overflow-hidden">
         <Image
           source={require("@/assets/images/home.png")}

@@ -1,7 +1,7 @@
-import Getaways from "@/components/getaways";
+import MyAccount from "@/components/my-account";
 
 export default function MyAccountScreen() {
   return (
-    <Getaways />
+    <MyAccount />
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, Platform, ScrollView, Text, View } from "react-native";
 import FormOffer from "./FormOffer";
 import Offer from "./Offer";
 
@@ -68,7 +68,7 @@ const OFFERS = [
 
 const Offers = () => {
   return (
-    <ScrollView>
+    <ScrollView style={{ marginTop: Platform.OS === "android" ? 60 : 0 }}>
       <View className="w-full h-[400px] justify-center items-center overflow-hidden">
         <Image
           source={require("@/assets/images/offers-bg.png")}
