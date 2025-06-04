@@ -37,7 +37,7 @@ const FormOffer = () => {
   const handleSubmit = () => {
     const phoneNumber = "584126475918";
     const message = `
-      *Solicitud de Cotización de Oferta*
+      *Solicitud de Cotización de Vuelo*
       Nombre: ${formData.name}
       Origen: ${formData.origin}
       Destino: ${formData.destination}
